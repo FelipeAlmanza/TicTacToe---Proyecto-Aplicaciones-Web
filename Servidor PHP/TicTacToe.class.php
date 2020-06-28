@@ -25,9 +25,9 @@ class TicTacToe
   {
     //Crear tablero del tamaño definido y se inicializa en vacío
     for ($i = 0; $i < TAM_TABLERO; $i++) {
-      $grid[] = array();
+      $this->tablero[] = array();
       for ($j = 0; $j < TAM_TABLERO; $j++) {
-        $grid[$i][] = CELDA_VACIA;
+        $this->tablero[$i][] = CELDA_VACIA;
       }
     }
   }
@@ -40,6 +40,16 @@ class TicTacToe
     return $this->tablero;
   }
 
+  public function printTablero()
+  {
+    for ($i = 0; $i < TAM_TABLERO; $i++) {
+      for ($j = 0; $j < TAM_TABLERO; $j++) {
+        echo $this->tablero[$i][$j];
+      }
+      echo "\n";
+    }
+  }
+
   //para el usuario
   public function turnoUsuario($posX, $posY)
   {
@@ -47,7 +57,7 @@ class TicTacToe
     $movimientoValido = $this->validarMovimiento($posX, $posY);
 
     if ($movimientoValido) {
-      return "[" + $posX + "][" + $posY + "]";
+      return "[{$posX}][{$posY}]";
       //$this->tablero[$posX][$posY] = $simboloColocar;
     } else {
       return "movimiento invalido";
@@ -80,9 +90,8 @@ class TicTacToe
 
           //se revisa si el tablero con este posible movimiento hace que maquina gane
           if ($this->movidaGanadora(CARAC_MAQUINA, $tableroCopia)) {
-            // $tablero[$i][$j] = CARAC_MAQUINA;
             $this->estadoDeJuego = "Gana máquina";
-            return "[" + $i + "][" + $j + "]";
+            return "[{$i}][{$j}]";
           } else {
             //Si no funcion lo regresa a su valor original
             $tableroCopia[$i][$j] = CELDA_VACIA;
@@ -92,13 +101,13 @@ class TicTacToe
     }
 
     //Intentar Bloquear gane de usuario
-    for ($i = 0; $i <= TAM_TABLERO; $i++) {
-      for ($j = 0; $j <= TAM_TABLERO; $j++) {
+    for ($i = 0; $i < TAM_TABLERO; $i++) {
+      for ($j = 0; $j < TAM_TABLERO; $j++) {
         if ($this->tablero[$i][$j] == CELDA_VACIA) {
           //Probar si poniendo una marca del usuario este gana, para impedirlo poniendo en este lugar
           $tableroCopia[$i][$j] = CARAC_USUARIO;
           if ($this->movidaGanadora(CARAC_USUARIO, $tableroCopia)) {
-            return "[" + $i + "][" + $j + "]";
+            return "[{$i}][{$j}]";
           } else {
             //Si no funcion lo regresa a su valor original
             $tableroCopia[$i][$j] = CELDA_VACIA;
@@ -134,13 +143,13 @@ class TicTacToe
 
   private function movidaGanadora($caracter, $tablero)
   {
-    for ($i = 0; $i <= TAM_TABLERO; $i++) {
+    for ($i = 0; $i < TAM_TABLERO; $i++) {
       if ($tablero[$i][0] == $caracter && $tablero[$i][1] == $caracter && $tablero[$i][2] == $caracter) {
         return true;
       }
     }
 
-    for ($i = 0; $i <= TAM_TABLERO; $i++) {
+    for ($i = 0; $i < TAM_TABLERO; $i++) {
       if ($tablero[0][$i] == $caracter && $tablero[1][$i] == $caracter && $tablero[2][$i] == $caracter) {
         return true;
       }
@@ -198,3 +207,8 @@ class TicTacToe
 }
 
 $juego = new TicTacToe();
+print_r($juego->get_Tablero());
+$juego->printTablero();
+$movida = $juego->turnoUsuario(1, 2);
+$juego->marcarEnTablero(CARAC_USUARIO, $movida);
+$juego->printTablero();

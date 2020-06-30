@@ -34,12 +34,14 @@ class TicTacToe
 
   /**
    * Retorna el arreglo con el tablero
+   * @return array
    */
   public function get_Tablero()
   {
     return $this->tablero;
   }
 
+  //DEBUG
   public function printTablero()
   {
     for ($i = 0; $i < TAM_TABLERO; $i++) {
@@ -50,6 +52,9 @@ class TicTacToe
     }
   }
 
+  /**
+   * @return string
+   */
   //para el usuario
   public function turnoUsuario($posX, $posY)
   {
@@ -205,10 +210,3 @@ class TicTacToe
     return "en progreso";
   }
 }
-
-$juego = new TicTacToe();
-print_r($juego->get_Tablero());
-$juego->printTablero();
-$movida = $juego->turnoUsuario(1, 2);
-$juego->marcarEnTablero(CARAC_USUARIO, $movida);
-$juego->printTablero();

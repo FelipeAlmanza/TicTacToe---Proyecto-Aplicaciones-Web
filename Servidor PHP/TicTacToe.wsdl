@@ -2,110 +2,161 @@
 
 <!-- Descripción WSDL de la clase TicTacToe. -->
 
-<definitions name="ECCI_HolaMundo"
-             targetNamespace="urn:ECCI_HolaMundo"
-             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-             xmlns:tns="urn:ECCI_HolaMundo"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-             xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
-             xmlns="http://schemas.xmlsoap.org/wsdl/">
+<definitions name="TicTacToe" targetNamespace="urn:TicTacToe" 
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+  xmlns:tns="urn:TicTacToe" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" 
+  xmlns="http://schemas.xmlsoap.org/wsdl/">
 
   <!-- Tipos complejos -->
 
   <types xmlns="http://schemas.xmlsoap.org/wsdl/">
-    <xsd:schema targetNamespace="urn:ECCI_HolaMundo">
-      <xsd:element name="salude">
+    <xsd:schema targetNamespace="urn:TicTacToe">
+
+      <xsd:element name="turnoUsuario">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="nombre" type="xsd:string" nillable="true" />
+            <xsd:element name="posX" type="xsd:integer"/>
+            <xsd:element name="posY" type="xsd:integer"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:element name="saludeReturn">
+
+      <xsd:element name="turnoUsuarioReturn">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="saludeResult" type="xsd:string" />
+            <xsd:element name="turnoUsuarioResult" type="xsd:string" />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:element name="servidorEstampillaDeTiempo">
+
+      <xsd:element name="turnoMaquina">
         <xsd:complexType />
       </xsd:element>
-      <xsd:element name="servidorEstampillaDeTiempoReturn">
+
+      <xsd:element name="turnoMaquinaReturn">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="servidorEstampillaDeTiempoResult" type="xsd:string" />
+            <xsd:element name="turnoMaquinaResult" type="xsd:string" />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:element name="ultimoSaludo">
-        <xsd:complexType />
-      </xsd:element>
-      <xsd:element name="ultimoSaludoReturn">
+
+      <xsd:element name="marcarEnTablero">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="ultimoSaludoResult" type="xsd:string" />
+            <xsd:element name="caracJugador" type="xsd:string" />
+            <xsd:element name="movimiento" type="xsd:string" />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+
+      <xsd:element name="estadoDeJuego">
+        <xsd:complexType/>
+      </xsd:element>
+
+      <xsd:element name="estadoDeJuegoReturn">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="estadoDeJuegoResult" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="get_Tablero">
+        <xsd:complexType/>
+      </xsd:element>
+
+      <xsd:element name="get_TableroReturn">
+        <complexType name="tablero">
+          <complexContent>
+            <restriction base="SOAP-ENC:Array">
+              <attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="xsd:string[]"/>
+            </restriction>
+          </complexContent>
+        </complexType>
+      </xsd:element>
+
     </xsd:schema>
   </types>
 
-  <!-- Mensajes para comunicarse con la clase HolaMundo. -->
+  <!-- Mensajes para comunicarse con la clase TicTacToe. -->
 
-  <message name="saludeRequest">
-    <part name="parameters" element="tns:salude" />
+  <message name="turnoUsuarioRequest">
+    <part name="parameters" element="tns:turnoUsuario" />
   </message>
 
-  <message name="saludeResponse">
-    <part name="parameters" element="tns:saludeReturn" />
+  <message name="turnoUsuarioResponse">
+    <part name="parameters" element="tns:turnoUsuarioReturn" />
   </message>
 
-  <message name="servidorEstampillaDeTiempoRequest">
-    <part name="parameters" element="tns:servidorEstampillaDeTiempo" />
+  <message name="turnoMaquinaRequest">
+    <part name="parameters" element="tns:turnoMaquina" />
   </message>
 
-  <message name="servidorEstampillaDeTiempoResponse">
-    <part name="parameters" element="tns:servidorEstampillaDeTiempoReturn" />
+  <message name="turnoMaquinaResponse">
+    <part name="parameters" element="tns:turnoMaquinaReturn" />
   </message>
 
-  <message name="ultimoSaludoRequest">
-    <part name="parameters" element="tns:ultimoSaludo" />
+  <message name="marcarEnTableroRequest">
+    <part name="parameters" element="tns:marcarEnTablero" />
   </message>
 
-  <message name="ultimoSaludoResponse">
-    <part name="parameters" element="tns:ultimoSaludoReturn" />
+  <message name="estadoDeJuegoRequest">
+    <part name="parameters" element="tns:estadoDeJuego" />
   </message>
 
-  <!-- Puerto para comunicar con la clase HolaMundo, "ECCI_HolaMundo" -->
+  <message name="estadoDeJuegoResponse">
+    <part name="parameters" element="tns:estadoDeJuegoReturn" />
+  </message>
 
-  <portType name="ECCI_HolaMundoPort">
+  <message name="get_TableroRequest">
+    <part name="parameters" element="tns:get_Tablero" />
+  </message>
 
-    <operation name="salude">
-      <input message="tns:saludeRequest" />
-      <output message="tns:saludeResponse" />
+  <message name="get_TableroResponse">
+    <part name="parameters" element="tns:get_TableroReturn" />
+  </message>
+
+  <!-- Puerto para comunicar con la clase TicTacToe -->
+
+  <portType name="TicTacToePort">
+
+    <operation name="turnoMaquina">
+      <input message="tns:turnoMaquinaRequest" />
+      <output message="tns:turnoMaquinaResponse" />
     </operation>
 
-    <operation name="servidorEstampillaDeTiempo">
-      <input message="tns:servidorEstampillaDeTiempoRequest" />
-      <output message="tns:servidorEstampillaDeTiempoResponse" />
+    <operation name="turnoUsuario">
+      <input message="tns:turnoUsuarioRequest" />
+      <output message="tns:turnoUsuarioResponse" />
     </operation>
 
-    <operation name="ultimoSaludo">
-      <input message="tns:ultimoSaludoRequest" />
-      <output message="tns:ultimoSaludoResponse" />
+    <operation name="marcarEnTablero">
+      <input message="tns:marcarEnTableroRequest" />
+    </operation>
+
+    <operation name="estadoDeJuego">
+      <input message="tns:estadoDeJuegoRequest" />
+      <output message="tns:estadoDeJuegoResponse" />
+    </operation>
+
+    <operation name="get_Tablero">
+      <input message="tns:get_TableroRequest" />
+      <output message="tns:get_TableroResponse" />
     </operation>
 
   </portType>
 
   <!-- Vinculación de los llamados con el transporte - Document, SOAP/Literal over HTTP -->
 
-  <binding name="ECCI_HolaMundoBinding" type="tns:ECCI_HolaMundoPort">
+  <binding name="TicTacToeBinding" type="tns:TicTacToePort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
 
-    <operation name="salude">
-      <soap:operation soapAction="urn:ECCI_HolaMundo#HolaMundo#salude" style="document" />
+    <operation name="turnoUsuario">
+      <soap:operation soapAction="urn:TicTacToe#TicTacToe#turnoUsuario" style="document" />
       <input>
         <soap:body use="literal" />
       </input>
@@ -114,8 +165,8 @@
       </output>
     </operation>
 
-    <operation name="servidorEstampillaDeTiempo">
-      <soap:operation soapAction="urn:ECCI_HolaMundo#HolaMundo#servidorEstampillaDeTiempo" style="document" />
+    <operation name="turnoMaquina">
+      <soap:operation soapAction="urn:TicTacToe#TicTacToe#turnoMaquina" style="document" />
       <input>
         <soap:body use="literal" />
       </input>
@@ -124,8 +175,15 @@
       </output>
     </operation>
 
-    <operation name="ultimoSaludo">
-      <soap:operation soapAction="urn:ECCI_HolaMundo#HolaMundo#ultimoSaludo" style="document" />
+    <operation name="marcarEnTablero">
+      <soap:operation soapAction="urn:TicTacToe#TicTacToe#marcarEnTablero" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+
+    <operation name="estadoDeJuego">
+      <soap:operation soapAction="urn:TicTacToe#TicTacToe#estadoDeJuego" style="document" />
       <input>
         <soap:body use="literal" />
       </input>
@@ -133,13 +191,25 @@
         <soap:body use="literal" />
       </output>
     </operation>
+
+    <operation name="get_Tablero">
+      <soap:operation soapAction="urn:TicTacToe#TicTacToe#get_Tablero" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+
   </binding>
 
-  <!-- Punto de comunicación con la clase HolaMundo -->
+  <!-- Punto de comunicación con la clase TicTacToe -->
 
-  <service name="ECCI_HolaMundo">
+  <service name="TicTacToe">
     <documentation />
-    <port name="ECCI_HolaMundoPort" binding="tns:ECCI_HolaMundoBinding">
+    <port name="TicTacToePort" binding="tns:TicTacToeBinding">
+      <!-- TODO -->
       <soap:address location="http://titanic.ecci.ucr.ac.cr:80/~bsolano/HolaMundoServiceDocumentLiteral/" />
     </port>
   </service>

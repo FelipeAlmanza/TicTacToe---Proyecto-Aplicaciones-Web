@@ -64,7 +64,7 @@ public class TictacToeClientGUI extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("TIC TAC TOE");
 
-        jButton2.setText("Siguiente");
+        jButton2.setText(" Siguiente turno");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

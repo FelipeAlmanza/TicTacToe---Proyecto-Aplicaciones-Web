@@ -16,11 +16,11 @@ public class TictacToeClientGUI extends javax.swing.JFrame {
     /**
      * Creates new form TictacToeClientGUI
      */
-    private final tictactoe.TicTacToePort juego;
+    private final tictactoe_ws.TicTacToePort juego;
 
     public TictacToeClientGUI() {
         initComponents();
-        tictactoe.TicTacToe service = new tictactoe.TicTacToe();
+        tictactoe_ws.TicTacToe service = new tictactoe_ws.TicTacToe();
         juego = service.getTicTacToePort();
         ((BindingProvider)juego).getRequestContext().put(BindingProvider.SESSION_MAINTAIN_PROPERTY,true);
     }

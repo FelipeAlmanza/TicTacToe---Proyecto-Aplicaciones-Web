@@ -16,22 +16,22 @@
             <classpath path="${libs.jaxws21.classpath}"/>
         </taskdef>
     </target>
-    <target name="wsimport-client-WsClient_1" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/WsClient_1"/>
-        <property name="wsdl-WsClient_1" location="xml-resources/web-service-references/WsClient_1/wsdl/titanic.ecci.ucr.ac.cr_80/_eb66538/tictactoe/.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WsClient_1" destdir="${build.generated.dir}/jax-wsCache/WsClient_1" wsdl="${wsdl-WsClient_1}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://titanic.ecci.ucr.ac.cr:80/~eb66538/tictactoe/?wsdl" xnocompile="true" xendorsed="true" package="tictactoe_ws">
-            <depends file="${wsdl-WsClient_1}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/WsClient_1"/>
+    <target name="wsimport-client-WsClient" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WsClient"/>
+        <property name="wsdl-WsClient" location="xml-resources/web-service-references/WsClient/wsdl/titanic.ecci.ucr.ac.cr_80/_eb66538/tictactoe/.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WsClient" destdir="${build.generated.dir}/jax-wsCache/WsClient" wsdl="${wsdl-WsClient}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://titanic.ecci.ucr.ac.cr:80/~eb66538/tictactoe/?wsdl" xnocompile="true" xendorsed="true" package="tictactoe_ws">
+            <depends file="${wsdl-WsClient}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WsClient"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/WsClient_1">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WsClient">
                 <include name="**/*.java"/>
             </fileset>
         </copy>
     </target>
-    <target name="wsimport-client-clean-WsClient_1" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/WsClient_1"/>
+    <target name="wsimport-client-clean-WsClient" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/WsClient"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/tictactoe_ws"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-WsClient_1"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-WsClient"/>
 </project>

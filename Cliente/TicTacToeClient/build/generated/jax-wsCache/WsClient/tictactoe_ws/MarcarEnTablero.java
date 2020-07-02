@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -42,7 +42,7 @@ public class MarcarEnTablero {
     protected String movimiento;
 
     /**
-     * Obtiene el valor de la propiedad caracJugador.
+     * Gets the value of the caracJugador property.
      * 
      * @return
      *     possible object is
@@ -54,7 +54,7 @@ public class MarcarEnTablero {
     }
 
     /**
-     * Define el valor de la propiedad caracJugador.
+     * Sets the value of the caracJugador property.
      * 
      * @param value
      *     allowed object is
@@ -66,7 +66,7 @@ public class MarcarEnTablero {
     }
 
     /**
-     * Obtiene el valor de la propiedad movimiento.
+     * Gets the value of the movimiento property.
      * 
      * @return
      *     possible object is
@@ -78,7 +78,7 @@ public class MarcarEnTablero {
     }
 
     /**
-     * Define el valor de la propiedad movimiento.
+     * Sets the value of the movimiento property.
      * 
      * @param value
      *     allowed object is

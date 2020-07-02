@@ -2,7 +2,7 @@
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services/>
   <clients>
-    <client name="WsClient_1">
+    <client name="WsClient">
       <wsdl-url>http://titanic.ecci.ucr.ac.cr:80/~eb66538/tictactoe/?wsdl</wsdl-url>
       <local-wsdl-file>titanic.ecci.ucr.ac.cr_80/_eb66538/tictactoe/.wsdl</local-wsdl-file>
       <package-name forceReplace="true">tictactoe_ws</package-name>

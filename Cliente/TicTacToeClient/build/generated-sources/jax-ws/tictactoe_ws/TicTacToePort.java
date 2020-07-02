@@ -27,6 +27,14 @@ public interface TicTacToePort {
 
     /**
      * 
+     */
+    @WebMethod(action = "urn:TicTacToe#TicTacToe#reiniciar")
+    @Oneway
+    @RequestWrapper(localName = "reiniciar", targetNamespace = "urn:TicTacToe", className = "tictactoe_ws.Reiniciar")
+    public void reiniciar();
+
+    /**
+     * 
      * @param posX
      * @param posY
      * @return

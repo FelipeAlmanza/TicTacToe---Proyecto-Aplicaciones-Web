@@ -6,8 +6,8 @@
 package tictactoeclient;
 
 import java.math.BigInteger;
-import java.util.List;
 import javax.xml.ws.BindingProvider;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
@@ -238,76 +238,143 @@ public class TictacToeClientGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        this.hacerMovimiento(2, 2);
+        if (this.hacerMovimiento(2, 2)) {
+            this.jButton14.setText("X");
+        }
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        this.hacerMovimiento(1, 1);
+        if (this.hacerMovimiento(1, 1)) {
+            this.jButton10.setText("X");
+        }
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        this.hacerMovimiento(0, 0);
+        if (this.hacerMovimiento(0, 0)) {
+            this.jButton5.setText("X");
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        this.hacerMovimiento(0, 1);
+        if (this.hacerMovimiento(0, 1)) {
+            this.jButton6.setText("X");
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        this.hacerMovimiento(0, 2);
+        if (this.hacerMovimiento(0, 2)) {
+            this.jButton7.setText("X");
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        this.hacerMovimiento(1, 0);
+        if (this.hacerMovimiento(1, 0)) {
+            this.jButton9.setText("X");
+        }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        this.hacerMovimiento(1, 2);
+        if (this.hacerMovimiento(1, 2)) {
+            this.jButton11.setText("X");
+        }
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        this.hacerMovimiento(2, 0);
+        if (this.hacerMovimiento(2, 0)) {
+            this.jButton12.setText("X");
+        }
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        this.hacerMovimiento(2, 1);
+        if (this.hacerMovimiento(2, 1)) {
+            this.jButton1.setText("X");
+        }
     }//GEN-LAST:event_jButton13ActionPerformed
 
-    
-    private void jugar(){
-        this.jLabel2.setText(this.juego.estadoDeJuego());
-        this.refrescarTablero(this.juego.getTablero().split(","));
+    private void jugar() {
+        this.jLabel2.setText("");
+        this.refrescarTablero();
     }
-    
-    private void refrescarTablero(String[] tablero) {
-        this.jButton5.setText(tablero[0]);
-        this.jButton6.setText(tablero[1]);
-        this.jButton7.setText(tablero[2]);
-        this.jButton9.setText(tablero[3]);
-        this.jButton10.setText(tablero[4]);
-        this.jButton11.setText(tablero[5]);
-        this.jButton12.setText(tablero[6]);
-        this.jButton13.setText(tablero[7]);
-        this.jButton14.setText(tablero[8]);
+
+    //Limpia tablero para nuevas partidas
+    private void refrescarTablero() {
+
+        this.jButton5.setText("");
+        this.jButton6.setText("");
+        this.jButton7.setText("");
+        this.jButton9.setText("");
+        this.jButton10.setText("");
+        this.jButton11.setText("");
+        this.jButton12.setText("");
+        this.jButton13.setText("");
+        this.jButton14.setText("");
+        juego.reiniciar();
+
     }
-    
-    private void hacerMovimiento(int x, int y) {
+
+    private boolean hacerMovimiento(int x, int y) {
         if (this.jLabel2.getText().equals("en progreso")) {
             String movimientoJugador = this.juego.turnoUsuario(BigInteger.valueOf(x), BigInteger.valueOf(y));
             if (!movimientoJugador.equals("movimiento invalido")) {
+                String estado;
                 this.juego.marcarEnTablero("X", movimientoJugador);
-                String movimientoMaquina = this.juego.turnoMaquina();
-                this.juego.marcarEnTablero("O", movimientoMaquina);
-                this.refrescarTablero(this.juego.getTablero().split(","));
-                this.jLabel2.setText(this.juego.estadoDeJuego());
+                //Revisar estado de juego
+                estado = juego.estadoDeJuego();
+                if (!estado.equals("en progreso")) {
+                    this.jLabel2.setText(estado);
+
+                } else {
+                    String movimientoMaquina = this.juego.turnoMaquina();
+                    marcarMaquina(movimientoMaquina);
+                    showMessageDialog(null, movimientoMaquina);
+                    this.juego.marcarEnTablero("O", movimientoMaquina);
+                    estado = juego.estadoDeJuego();
+
+                    if (!estado.equals("en progreso")) {
+                        this.jLabel2.setText(estado);
+
+                    }
+                }
+                return true;
+            } //Indicar que movimiento invalido
+            else {
+                showMessageDialog(null, "Movimiento inválido");
+                return false;
             }
         }
+        return false;
     }
-    
+
+    //Marca en tablero de interfaz la movida de la maquina
+    private void marcarMaquina(String movimiento) {
+        int fila = movimiento.charAt(1);
+        int columna = movimiento.charAt(4);
+
+        if (fila == 0 && columna == 0) {
+            this.jButton5.setText("O");
+        } else if (fila == 0 && columna == 1) {
+            this.jButton6.setText("O");
+        } else if (fila == 0 && columna == 2) {
+            this.jButton7.setText("O");
+        } else if (fila == 1 && columna == 0) {
+            this.jButton9.setText("O");
+        } else if (fila == 1 && columna == 1) {
+            this.jButton10.setText("O");
+        } else if (fila == 1 && columna == 2) {
+            this.jButton11.setText("O");
+        } else if (fila == 2 && columna == 0) {
+            this.jButton12.setText("O");
+        } else if (fila == 2 && columna == 1) {
+            this.jButton13.setText("O");
+        } else if (fila == 2 && columna == 2) {
+            this.jButton14.setText("O");
+        }
+    }
+
     /**
      * @param args the command line arguments
      */

@@ -9,16 +9,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="getTableroResult" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="estadoDeJuegoResult" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,36 +29,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "getTableroResult"
+    "estadoDeJuegoResult"
 })
-@XmlRootElement(name = "getTableroReturn")
-public class GetTableroReturn {
+@XmlRootElement(name = "estadoDeJuegoReturn")
+public class EstadoDeJuegoReturn {
 
     @XmlElement(required = true)
-    protected String getTableroResult;
+    protected String estadoDeJuegoResult;
 
     /**
-     * Obtiene el valor de la propiedad getTableroResult.
+     * Gets the value of the estadoDeJuegoResult property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getGetTableroResult() {
-        return getTableroResult;
+    public String getEstadoDeJuegoResult() {
+        return estadoDeJuegoResult;
     }
 
     /**
-     * Define el valor de la propiedad getTableroResult.
+     * Sets the value of the estadoDeJuegoResult property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setGetTableroResult(String value) {
-        this.getTableroResult = value;
+    public void setEstadoDeJuegoResult(String value) {
+        this.estadoDeJuegoResult = value;
     }
 
 }

@@ -18,7 +18,6 @@ class TicTacToeTablero
     $this->inicializarTablero();
 
     $estadoDeJuego = "en progreso";
-    $turno = 0; //comienza usuario
   }
 
   private function inicializarTablero()
@@ -30,6 +29,13 @@ class TicTacToeTablero
         $this->tablero[$i][] = CELDA_VACIA;
       }
     }
+  }
+
+  public function reiniciar(){
+    $this->tablero = array();
+    $this->inicializarTablero();
+
+    $this->estadoDeJuego = "en progreso";
   }
 
   /**

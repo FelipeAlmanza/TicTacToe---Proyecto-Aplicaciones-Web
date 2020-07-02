@@ -9,16 +9,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="turnoUsuarioResult" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="getTableroResult" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,36 +29,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "turnoUsuarioResult"
+    "getTableroResult"
 })
-@XmlRootElement(name = "turnoUsuarioReturn")
-public class TurnoUsuarioReturn {
+@XmlRootElement(name = "getTableroReturn")
+public class GetTableroReturn {
 
     @XmlElement(required = true)
-    protected String turnoUsuarioResult;
+    protected String getTableroResult;
 
     /**
-     * Obtiene el valor de la propiedad turnoUsuarioResult.
+     * Gets the value of the getTableroResult property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getTurnoUsuarioResult() {
-        return turnoUsuarioResult;
+    public String getGetTableroResult() {
+        return getTableroResult;
     }
 
     /**
-     * Define el valor de la propiedad turnoUsuarioResult.
+     * Sets the value of the getTableroResult property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setTurnoUsuarioResult(String value) {
-        this.turnoUsuarioResult = value;
+    public void setGetTableroResult(String value) {
+        this.getTableroResult = value;
     }
 
 }

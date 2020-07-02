@@ -38,6 +38,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Reiniciar }
+     * 
+     */
+    public Reiniciar createReiniciar() {
+        return new Reiniciar();
+    }
+
+    /**
      * Create an instance of {@link MarcarEnTablero }
      * 
      */

@@ -4,5 +4,5 @@
     <system systemId="http://localhost:8080/TicTacToeService/TicTacToe?wsdl" uri="xml-resources/web-service-references/TicTacToe/wsdl/localhost_8080/TicTacToeService/TicTacToe.wsdl"/>
     <system systemId="http://localhost:8080/TicTacToeService/TicTacToe?xsd=1" uri="xml-resources/web-service-references/TicTacToe/wsdl/localhost_8080/TicTacToeService/TicTacToe.xsd_1.xsd"/>
     <system systemId="http://titanic.ecci.ucr.ac.cr/~eb66538/TicTacToe/?wsdl" uri="xml-resources/web-service-references/WsClient/wsdl/titanic.ecci.ucr.ac.cr/~eb66538/TicTacToe/.wsdl"/>
-    <system systemId="http://titanic.ecci.ucr.ac.cr:80/~eb66538/tictactoe/?wsdl" uri="xml-resources/web-service-references/WsClient_1/wsdl/titanic.ecci.ucr.ac.cr_80/_eb66538/tictactoe/.wsdl"/>
+    <system systemId="http://titanic.ecci.ucr.ac.cr:80/~eb66538/tictactoe/?wsdl" uri="xml-resources/web-service-references/WsClient/wsdl/titanic.ecci.ucr.ac.cr_80/_eb66538/tictactoe/.wsdl"/>
 </catalog>

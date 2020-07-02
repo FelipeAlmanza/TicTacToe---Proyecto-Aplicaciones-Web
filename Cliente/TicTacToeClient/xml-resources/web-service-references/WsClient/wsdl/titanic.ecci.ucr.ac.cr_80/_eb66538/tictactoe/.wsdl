@@ -14,6 +14,10 @@
 
   <types xmlns="http://schemas.xmlsoap.org/wsdl/">
     <xsd:schema targetNamespace="urn:TicTacToe">
+
+      <xsd:element name="reiniciar">
+        <xsd:complexType />
+      </xsd:element>
 			
       <xsd:element name="turnoUsuario">
         <xsd:complexType>
@@ -82,6 +86,10 @@
 
   <!-- Mensajes para comunicarse con la clase TicTacToe. -->
 
+  <message name="reiniciarRequest">
+    <part name="parameters" element="tns:reiniciar" />
+  </message>
+
   <message name="turnoUsuarioRequest">
     <part name="parameters" element="tns:turnoUsuario" />
   </message>
@@ -122,6 +130,10 @@
 
   <portType name="TicTacToePort">
 
+    <operation name="reiniciar">
+      <input message="tns:reiniciarRequest" />
+    </operation>
+
     <operation name="turnoMaquina">
       <input message="tns:turnoMaquinaRequest" />
       <output message="tns:turnoMaquinaResponse" />
@@ -152,6 +164,13 @@
 
   <binding name="TicTacToeBinding" type="tns:TicTacToePort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+
+    <operation name="reiniciar">
+      <soap:operation soapAction="urn:TicTacToe#TicTacToe#reiniciar" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
 
     <operation name="turnoUsuario">
       <soap:operation soapAction="urn:TicTacToe#TicTacToe#turnoUsuario" style="document" />

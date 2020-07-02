@@ -296,7 +296,7 @@ public class TictacToeClientGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jugar() {
-        this.jLabel2.setText("");
+        this.jLabel2.setText("en progreso");
         this.refrescarTablero();
     }
 
@@ -316,6 +316,7 @@ public class TictacToeClientGUI extends javax.swing.JFrame {
 
     }
 
+    //Regresa un booleano indicando si pudo realizar movimiento
     private boolean hacerMovimiento(int x, int y) {
         if (this.jLabel2.getText().equals("en progreso")) {
             String movimientoJugador = this.juego.turnoUsuario(BigInteger.valueOf(x), BigInteger.valueOf(y));

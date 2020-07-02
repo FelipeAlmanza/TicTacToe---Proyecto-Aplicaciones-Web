@@ -8,7 +8,7 @@ define("CELDA_VACIA", "-"); //valor para campo sin usar en matriz
 define("CARAC_USUARIO", "X");
 define("CARAC_MAQUINA", "O");
 
-class TicTacToe
+class TicTacToeTablero
 {
   private $tablero = array(); //tablero
   private $estadoDeJuego; // en progreso, gana usuario, gana maquina, empate
@@ -34,11 +34,11 @@ class TicTacToe
 
   /**
    * Retorna el arreglo con el tablero
-   * @return array
+   * @return string
    */
-  public function get_Tablero()
+  public function getTablero()
   {
-    return $this->tablero;
+    return "-,-,-,-,-,-,-,-,-";
   }
 
   //DEBUG

@@ -2,7 +2,6 @@
 package tictactoe_ws;
 
 import java.math.BigInteger;
-import java.util.List;
 import javax.jws.Oneway;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -82,12 +81,12 @@ public interface TicTacToePort {
     /**
      * 
      * @return
-     *     returns java.util.List<java.lang.String>
+     *     returns java.lang.String
      */
-    @WebMethod(operationName = "get_Tablero", action = "urn:TicTacToe#TicTacToe#get_Tablero")
-    @WebResult(name = "cuadricula", targetNamespace = "")
-    @RequestWrapper(localName = "get_Tablero", targetNamespace = "urn:TicTacToe", className = "tictactoe_ws.GetTablero")
-    @ResponseWrapper(localName = "get_TableroReturn", targetNamespace = "urn:TicTacToe", className = "tictactoe_ws.Tablero")
-    public List<String> getTablero();
+    @WebMethod(action = "urn:TicTacToe#TicTacToe#getTablero")
+    @WebResult(name = "getTableroResult", targetNamespace = "")
+    @RequestWrapper(localName = "getTablero", targetNamespace = "urn:TicTacToe", className = "tictactoe_ws.GetTablero")
+    @ResponseWrapper(localName = "getTableroReturn", targetNamespace = "urn:TicTacToe", className = "tictactoe_ws.GetTableroReturn")
+    public String getTablero();
 
 }

@@ -1,10 +1,7 @@
 
 package tictactoe_ws;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
-import javax.xml.namespace.QName;
 
 
 /**
@@ -24,7 +21,6 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetTableroReturn_QNAME = new QName("urn:TicTacToe", "get_TableroReturn");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: tictactoe_ws
@@ -39,14 +35,6 @@ public class ObjectFactory {
      */
     public TurnoMaquinaReturn createTurnoMaquinaReturn() {
         return new TurnoMaquinaReturn();
-    }
-
-    /**
-     * Create an instance of {@link Tablero }
-     * 
-     */
-    public Tablero createTablero() {
-        return new Tablero();
     }
 
     /**
@@ -66,6 +54,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetTableroReturn }
+     * 
+     */
+    public GetTableroReturn createGetTableroReturn() {
+        return new GetTableroReturn();
+    }
+
+    /**
      * Create an instance of {@link EstadoDeJuego }
      * 
      */
@@ -74,19 +70,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TurnoMaquina }
-     * 
-     */
-    public TurnoMaquina createTurnoMaquina() {
-        return new TurnoMaquina();
-    }
-
-    /**
      * Create an instance of {@link GetTablero }
      * 
      */
     public GetTablero createGetTablero() {
         return new GetTablero();
+    }
+
+    /**
+     * Create an instance of {@link TurnoMaquina }
+     * 
+     */
+    public TurnoMaquina createTurnoMaquina() {
+        return new TurnoMaquina();
     }
 
     /**
@@ -103,15 +99,6 @@ public class ObjectFactory {
      */
     public TurnoUsuario createTurnoUsuario() {
         return new TurnoUsuario();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Tablero }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "urn:TicTacToe", name = "get_TableroReturn")
-    public JAXBElement<Tablero> createGetTableroReturn(Tablero value) {
-        return new JAXBElement<Tablero>(_GetTableroReturn_QNAME, Tablero.class, null, value);
     }
 
 }

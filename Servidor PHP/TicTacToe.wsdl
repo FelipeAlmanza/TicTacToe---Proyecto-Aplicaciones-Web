@@ -7,15 +7,13 @@
   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
   xmlns:tns="urn:TicTacToe" 
   xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" 
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
   xmlns="http://schemas.xmlsoap.org/wsdl/">
 
   <!-- Tipos complejos -->
 
   <types xmlns="http://schemas.xmlsoap.org/wsdl/">
     <xsd:schema targetNamespace="urn:TicTacToe">
-
-		<xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
 			
       <xsd:element name="turnoUsuario">
         <xsd:complexType>
@@ -67,15 +65,15 @@
         </xsd:complexType>
       </xsd:element>
 
-      <xsd:element name="get_Tablero">
+      <xsd:element name="getTablero">
         <xsd:complexType/>
       </xsd:element>
 
-        <xsd:element name="get_TableroReturn">
-        <xsd:complexType name="tablero">
+        <xsd:element name="getTableroReturn">
+        <xsd:complexType>
           <xsd:sequence>
-			<xsd:element minOccurs="0" maxOccurs="unbounded" name="cuadricula" type="xsd:string"/>
-		  </xsd:sequence>
+            <xsd:element name="getTableroResult" type="xsd:string" />
+          </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
 
@@ -112,12 +110,12 @@
     <part name="parameters" element="tns:estadoDeJuegoReturn" />
   </message>
 
-  <message name="get_TableroRequest">
-    <part name="parameters" element="tns:get_Tablero" />
+  <message name="getTableroRequest">
+    <part name="parameters" element="tns:getTablero" />
   </message>
 
-  <message name="get_TableroResponse">
-    <part name="parameters" element="tns:get_TableroReturn" />
+  <message name="getTableroResponse">
+    <part name="parameters" element="tns:getTableroReturn" />
   </message>
 
   <!-- Puerto para comunicar con la clase TicTacToe -->
@@ -143,9 +141,9 @@
       <output message="tns:estadoDeJuegoResponse" />
     </operation>
 
-    <operation name="get_Tablero">
-      <input message="tns:get_TableroRequest" />
-      <output message="tns:get_TableroResponse" />
+    <operation name="getTablero">
+      <input message="tns:getTableroRequest" />
+      <output message="tns:getTableroResponse" />
     </operation>
 
   </portType>
@@ -192,8 +190,8 @@
       </output>
     </operation>
 
-    <operation name="get_Tablero">
-      <soap:operation soapAction="urn:TicTacToe#TicTacToe#get_Tablero" style="document" />
+    <operation name="getTablero">
+      <soap:operation soapAction="urn:TicTacToe#TicTacToe#getTablero" style="document" />
       <input>
         <soap:body use="literal" />
       </input>

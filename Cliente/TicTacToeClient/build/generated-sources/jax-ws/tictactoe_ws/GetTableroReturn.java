@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="turnoMaquinaResult" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="getTableroResult" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,36 +29,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "turnoMaquinaResult"
+    "getTableroResult"
 })
-@XmlRootElement(name = "turnoMaquinaReturn")
-public class TurnoMaquinaReturn {
+@XmlRootElement(name = "getTableroReturn")
+public class GetTableroReturn {
 
     @XmlElement(required = true)
-    protected String turnoMaquinaResult;
+    protected String getTableroResult;
 
     /**
-     * Obtiene el valor de la propiedad turnoMaquinaResult.
+     * Obtiene el valor de la propiedad getTableroResult.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getTurnoMaquinaResult() {
-        return turnoMaquinaResult;
+    public String getGetTableroResult() {
+        return getTableroResult;
     }
 
     /**
-     * Define el valor de la propiedad turnoMaquinaResult.
+     * Define el valor de la propiedad getTableroResult.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setTurnoMaquinaResult(String value) {
-        this.turnoMaquinaResult = value;
+    public void setGetTableroResult(String value) {
+        this.getTableroResult = value;
     }
 
 }

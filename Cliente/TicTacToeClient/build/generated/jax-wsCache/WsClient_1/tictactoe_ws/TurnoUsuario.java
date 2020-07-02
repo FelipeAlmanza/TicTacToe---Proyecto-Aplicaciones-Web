@@ -10,9 +10,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Clase Java para anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType>
@@ -43,7 +43,7 @@ public class TurnoUsuario {
     protected BigInteger posY;
 
     /**
-     * Gets the value of the posX property.
+     * Obtiene el valor de la propiedad posX.
      * 
      * @return
      *     possible object is
@@ -55,7 +55,7 @@ public class TurnoUsuario {
     }
 
     /**
-     * Sets the value of the posX property.
+     * Define el valor de la propiedad posX.
      * 
      * @param value
      *     allowed object is
@@ -67,7 +67,7 @@ public class TurnoUsuario {
     }
 
     /**
-     * Gets the value of the posY property.
+     * Obtiene el valor de la propiedad posY.
      * 
      * @return
      *     possible object is
@@ -79,7 +79,7 @@ public class TurnoUsuario {
     }
 
     /**
-     * Sets the value of the posY property.
+     * Define el valor de la propiedad posY.
      * 
      * @param value
      *     allowed object is

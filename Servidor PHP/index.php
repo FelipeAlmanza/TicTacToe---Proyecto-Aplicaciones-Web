@@ -1,14 +1,6 @@
 <?php
 
-require_once 'TicTacToe.class.php';
-
-function autoinclude($className)
-{
-    $className = str_replace('\\', '/', $className) . '.php';
-    require_once $className;
-}
-
-spl_autoload_register('autoinclude');
+require_once 'TicTacToeTablero.class.php';
 
 if (isset($_GET['wsdl'])) {
     header('Content-Type: application/soap+xml; charset=utf-8');
@@ -17,7 +9,7 @@ if (isset($_GET['wsdl'])) {
     session_start();
 
     if (!isset($_SESSION['service'])) {
-        $_SESSION['service'] = new TicTacToe();
+        $_SESSION['service'] = new TicTacToeTablero();
     }
 
     // TODO
